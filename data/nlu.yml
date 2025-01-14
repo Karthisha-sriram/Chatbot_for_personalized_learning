@@ -1,0 +1,139 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: ask_machine_learning
+  examples: |
+    - What is machine learning?
+    - Can you explain machine learning?
+    - How does machine learning work?
+
+- intent: ask_ml_algorithms
+  examples: |
+    - What are common machine learning algorithms?
+    - Can you tell me about decision trees?
+    - Explain neural networks.
+
+- intent: ask_html_basics
+  examples: |
+    - What is HTML?
+    - Explain HTML in simple terms.
+    - How do you use HTML?
+
+- intent: ask_html_tags
+  examples: |
+    - What are the common HTML tags?
+    - Tell me about the <a> tag.
+    - What is the purpose of the <div> tag?
+
+- intent: ask_data_science
+  examples: |
+    - What is data science?
+    - Can you explain data science to me?
+    - How does data science work?
+
+- intent: ask_data_science_tools
+  examples: |
+    - What tools are used in data science?
+    - Tell me about Python for data science.
+    - Is SQL useful for data science?
+
+- intent: ask_rasa
+  examples: |
+    - What is Rasa?
+    - Can you explain the Rasa framework?
+    - How does Rasa work?
+
+- intent: ask_rasa_features
+  examples: |
+    - What features does Rasa have?
+    - Tell me about Rasa NLU.
+    - Can Rasa integrate with third-party platforms?
