@@ -1,70 +1,61 @@
 version: "3.1"
 
 stories:
-
-- story: happy path
+- story: Greet and ask for help
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - intent: ask_for_help
+  - action: utter_ask_topic
 
-- story: sad path 1
+- story: content_generation
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
+  - intent: ask_for_help
+  - action: utter_ask_topic
+  - intent: topic
+    entities:
+    - topic: "DevOps"
+  - slot_was_set:
+    - topic: "DevOps"
+  - action: action_generate_content
+  - action: utter_ask_video
+
+- story: video_flow_yes
+  steps:
   - intent: affirm
-  - action: utter_happy
+  - action: action_fetch_youtube_videos
+  - action: utter_more_info
 
-- story: sad path 2
+
+- story: video_flow_no
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
   - intent: deny
+  - action: utter_more_info
+
+- story: Direct topic request
+  steps:
+  - intent: topic
+    entities:
+    - topic: "artificial intelligence"
+  - slot_was_set:
+    - topic: "artificial intelligence"
+  - action: action_generate_content
+  - action: utter_ask_video
+  - intent: affirm
+  - action: action_fetch_youtube_videos
+  - action: utter_more_info
+
+- story: Handle bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: Say goodbye
+  steps:
+  - intent: goodbye
   - action: utter_goodbye
 
-- story: Explain machine learning
+- story: Default fallback
   steps:
-    - intent: ask_machine_learning
-    - action: utter_ask_machine_learning
-
-- story: Machine learning algorithms
-  steps:
-    - intent: ask_ml_algorithms
-    - action: utter_ask_ml_algorithms
-
-- story: HTML basics
-  steps:
-    - intent: ask_html_basics
-    - action: utter_ask_html_basics
-
-- story: HTML tags
-  steps:
-    - intent: ask_html_tags
-    - action: utter_ask_html_tags
-
-- story: Data science introduction
-  steps:
-    - intent: ask_data_science
-    - action: utter_ask_data_science
-
-- story: Data science tools
-  steps:
-    - intent: ask_data_science_tools
-    - action: utter_ask_data_science_tools
-
-- story: Rasa framework introduction
-  steps:
-    - intent: ask_rasa
-    - action: utter_ask_rasa
-
-- story: Rasa features
-  steps:
-    - intent: ask_rasa_features
-    - action: utter_ask_rasa_features
+  - intent: nlu_fallback
+  - action: utter_default
