@@ -37,6 +37,10 @@ rasa run --enable-api --cors "*" --port 5005
 rasa run actions
 streamlit run "filename.py"
 ```
+## The final User Interface
+1. ![Screenshot 2025-01-28 001845](https://github.com/user-attachments/assets/75a5bee9-0439-46eb-a107-ecfccf4775b9)
+2. ![Screenshot 2025-01-28 002111](https://github.com/user-attachments/assets/e2e0213e-249a-4c37-85ba-d0c83d6da6c5)
+
 ### Features
  1.Basic Q&A Functionality: Answer Student Queries.\
  2.API Integration: Integration with other educational tools, such as youtube to enhance the learning experience.\
