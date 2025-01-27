@@ -33,7 +33,7 @@ Rasa train
 ### Start the rasa action server
 run the following commands\
 ```
-rasa run -m models --enable-api --cors "*" --debug
+rasa run --enable-api --cors "*" --port 5005
 rasa run actions
 streamlit run "filename.py"
 ```
