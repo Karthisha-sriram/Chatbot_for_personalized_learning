@@ -3,104 +3,71 @@ version: "3.1"
 intents:
   - greet
   - goodbye
+  - bot_challenge
+  - ask_for_help
+  - topic
   - affirm
   - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_machine_learning
-  - ask_html_basics
-  - ask_data_science
-  - ask_rasa
-  - ask_ml_algorithms
-  - ask_html_tags
-  - ask_data_science_tools
-  - ask_rasa_features
-
+  - who_created_you
 
 entities:
-  - algorithm
-  - html_tag
-  - tool
-  - rasa_feature
+  - topic
 
 slots:
-  algorithm:
+  topic:
     type: text
+    influence_conversation: true
     mappings:
       - type: from_entity
-        entity: algorithm
+        entity: topic
 
-  html_tag:
-    type: text
+  keywords:
+    type: list
+    influence_conversation: false
     mappings:
-      - type: from_entity
-        entity: html_tag
-
-  tool:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: tool
-
-  rasa_feature:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: rasa_feature
-
+      - type: custom
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
+    - text: "Hello! I am an AI assistant. How can I help you today?"
 
   utter_goodbye:
-  - text: "Bye"
+    - text: "Goodbye! Feel free to come back anytime."
 
   utter_iamabot:
-  - text: "i am a bot, powered by rasa"
+    - text: "I am an AI assistant."
 
-  utter_ask_machine_learning:
-  - text: "Machine learning is a branch of artificial intelligence that allows computers to learn and improve from experience without being explicitly programmed. Would you like to know about its algorithms or applications?"
+  utter_creator:
+    - text: "I was created by Karthisha."
 
-  utter_ask_ml_algorithms:
-  - text: "Some popular machine learning algorithms are Linear Regression, Decision Trees, and Neural Networks. Which one interests you?"
+  utter_ask_topic:
+    - text: "What topic would you like to learn about?"
 
-  utter_ask_html_basics:
-  - text: "HTML (HyperText Markup Language) is used to structure content on the web. It includes elements like headings, paragraphs, and links. Do you want to know about specific tags?"
+  utter_ask_video:
+    - text: |
+        Would you like to see some videos related to *{topic}*?  
+        Just let me know, and I'll fetch them for you.
 
-  utter_ask_html_tags:
-  - text: "Common HTML tags include <p> for paragraphs, <a> for links, and <div> for divisions. Which tag do you want to explore?"
+  utter_more_info:
+    - text: "If there is anything more you want to learn, please let me know."
 
-  utter_ask_data_science:
-  - text: "Data science involves extracting insights and knowledge from data using techniques like statistical analysis, machine learning, and visualization. Would you like to know about tools or applications?"
+  utter_video_links:
+    - text: |
+        Here are some educational videos about *{topic}*:
 
-  utter_ask_data_science_tools:
-  - text: "Popular tools for data science include Python, R, Tableau, and SQL. Do you want help with any of these?"
+        *[Video 1 Title](https://www.youtube.com/watch?v=video1_id)*  
+        Channel: Example Channel  
+        Views: 1000  
 
-  utter_ask_rasa:
-  - text: "Rasa is an open-source framework for building conversational AI chatbots. It includes tools for natural language understanding and dialogue management. Would you like to know about its features?"
+        *[Video 2 Title](https://www.youtube.com/watch?v=video2_id)*  
+        Channel: Another Channel  
+        Views: 2000  
 
-  utter_ask_rasa_features:
-  - text: "Rasa offers features like custom NLU pipelines, form actions, and integrations with third-party platforms. Which feature would you like to explore?"
-
-  utter_ask_more_details:
-  - text: "Could you provide more specifics about what you're looking for? For example, the algorithm, tool, or feature you're curious about."
+        If there is anything more you'd like to learn, let me know!
 
   utter_default:
-    - text: "I'm sorry, I don't know the answer to that. Can you please ask something else?"
+    - text: "I'm sorry, I didn't understand that. Could you please rephrase?"
 
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+actions:
+  - action_generate_content
+  - action_fetch_youtube_videos
