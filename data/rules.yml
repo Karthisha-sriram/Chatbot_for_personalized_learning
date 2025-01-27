@@ -1,7 +1,6 @@
 version: "3.1"
 
 rules:
-
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -12,42 +11,7 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: Respond to machine learning query
+- rule: Say 'I am created by ABhi' anytime the user challenges
   steps:
-    - intent: ask_machine_learning
-    - action: utter_ask_machine_learning
-
-- rule: Respond to machine learning algorithms
-  steps:
-    - intent: ask_ml_algorithms
-    - action: utter_ask_ml_algorithms
-
-- rule: Respond to HTML basics query
-  steps:
-    - intent: ask_html_basics
-    - action: utter_ask_html_basics
-
-- rule: Respond to HTML tags query
-  steps:
-    - intent: ask_html_tags
-    - action: utter_ask_html_tags
-
-- rule: Respond to data science query
-  steps:
-    - intent: ask_data_science
-    - action: utter_ask_data_science
-
-- rule: Respond to data science tools query
-  steps:
-    - intent: ask_data_science_tools
-    - action: utter_ask_data_science_tools
-
-- rule: Respond to Rasa query
-  steps:
-    - intent: ask_rasa
-    - action: utter_ask_rasa
-
-- rule: Respond to Rasa features query
-  steps:
-    - intent: ask_rasa_features
-    - action: utter_ask_rasa_features
+  - intent: who_created_you
+  - action: utter_creator
