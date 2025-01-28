@@ -31,7 +31,7 @@ Rasa train
 1.**rasa shell**(in shell)\
 2.**rasa run**(as a server)
 ### Start the rasa action server
-run the following commands\
+run the following commands
 ```
 rasa run --enable-api --cors "*" --port 5005
 rasa run actions
