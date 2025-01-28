@@ -197,7 +197,7 @@ with st.sidebar:
     # Handle "About Us" button click and display the response below it within the sidebar
     if st.button("About Us", key="about_us_button"):
         question = "About Us"
-        bot_response = "We are Edubot, your assistant for learning about a variety of technical topics. Our aim is to provide you with useful information and resources to enhance your knowledge."
+        bot_response = "I am Edubot, your assistant for learning about a variety of technical topics. Our aim is to provide you with useful information and resources to enhance your knowledge."
         st.markdown(f'<div style="color: white; background-color: #2d3436; padding: 10px; border-radius: 10px;">{bot_response}</div>', unsafe_allow_html=True)
 
 # Display the conversation history with styling
